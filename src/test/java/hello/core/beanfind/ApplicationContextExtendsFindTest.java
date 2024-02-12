@@ -41,9 +41,10 @@ public class ApplicationContextExtendsFindTest {
 
     @Test
     @DisplayName("부모 타입으로 모두 조회하기")
-    void findBeanByParentType() {
+    void findAllBeanByParentType() {
         Map<String, DiscountPolicy> beansOfType = ac.getBeansOfType(DiscountPolicy.class);
         assertThat(beansOfType.size()).isEqualTo(2);
+
         for (String key : beansOfType.keySet()) {
             System.out.println("key = " + key + " value = " + beansOfType.get(key));
         }
@@ -51,8 +52,9 @@ public class ApplicationContextExtendsFindTest {
 
     @Test
     @DisplayName("부모 타입으로 모두 조회하기 - Object")
-    void findBeanByObjectType() {
+    void findAllBeanByObjectType() {
         Map<String, Object> beansOfType = ac.getBeansOfType(Object.class);
+
         for (String key : beansOfType.keySet()) {
             System.out.println("key = " + key + " value = " + beansOfType.get(key));
         }
